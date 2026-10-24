@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "enterprise-agentic-ai-copilot"
+version = "2.0.0"
+description = "Evidence-grounded CRM / ERP renewal copilot with durable human approval"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn>=0.30,<1", "langgraph>=1.0,<2",
+  "langgraph-checkpoint-sqlite>=3,<4", "pydantic>=2.10,<3",
+  "faiss-cpu>=1.9,<2", "scikit-learn>=1.5,<2", "pypdf>=5,<7",
+  "reportlab>=4,<5", "streamlit>=1.50,<2", "httpx>=0.27,<1", "python-dotenv>=1,<2"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1"]
+semantic = ["fastembed>=0.6,<1"]
+
+[tool.setuptools.packages.find]
+include = ["copilot*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+markers = ["ollama: actual local inference; skipped before discovery unless --run-live-llm is supplied"]
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

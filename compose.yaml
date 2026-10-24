@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      LLM_MODE: offline
+      APPROVAL_TOKEN: ${APPROVAL_TOKEN:-local-demo-approver}
+    volumes:
+      - copilot_data:/app/data
+  dashboard:
+    build: .
+    command: python -m streamlit run dashboard.py --server.address 0.0.0.0 --server.port 8501 --server.headless true
+    environment:
+      COPILOT_API_URL: http://backend:8000
+    ports:
+      - "127.0.0.1:8501:8501"
+    depends_on:
+      - backend
+volumes:
+  copilot_data:

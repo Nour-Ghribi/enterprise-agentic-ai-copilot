@@ -1,0 +1,513 @@
+{
+  "started_at_utc": "2026-10-24T10:16:42.089750+00:00",
+  "finished_at_utc": "2026-10-24T10:19:59.775019+00:00",
+  "status": "passed",
+  "environment": {
+    "python": "3.10.11",
+    "os": "Windows"
+  },
+  "execution_mode": "Offline deterministic demo — no generative LLM inference.",
+  "live_llm_inference_requested": false,
+  "commercial_api_used": false,
+  "external_integrations_tested": false,
+  "checks": [
+    {
+      "name": "ruff",
+      "command": "python -m ruff check copilot tests scripts dashboard.py launch.py conftest.py",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 0.37
+    },
+    {
+      "name": "dependencies",
+      "command": "python -m pip check",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 4.358
+    },
+    {
+      "name": "pytest",
+      "command": "python -m pytest -q -rs --junitxml=reports/portfolio-pytest.xml",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 114.676
+    },
+    {
+      "name": "baseline_evaluation",
+      "command": "python -m copilot.evaluate",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 15.807
+    },
+    {
+      "name": "retrieval_evaluation",
+      "command": "python -m copilot.evaluate_phase2",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 10.373
+    },
+    {
+      "name": "approval_restart",
+      "command": "python scripts/check_persistent_approval.py",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 18.478
+    },
+    {
+      "name": "streamlit",
+      "command": "python scripts/smoke_ui.py",
+      "exit_code": 0,
+      "status": "passed",
+      "seconds": 33.584
+    }
+  ],
+  "pytest": {
+    "tests": 109,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 7,
+    "passed": 102
+  },
+  "retrieval": {
+    "lexical": {
+      "n": 12,
+      "recall_at_1": 0.75,
+      "recall_at_3": 0.75,
+      "mrr": 0.75,
+      "citation_provenance_rate": 1,
+      "total_latency_ms": 8.22,
+      "cases": [
+        {
+          "query": "non-renewal notice",
+          "customer_id": "C001",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "lexical"
+        },
+        {
+          "query": "expiration",
+          "customer_id": "C002",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "lexical"
+        },
+        {
+          "query": "critical incidents response",
+          "customer_id": "C003",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "lexical"
+        },
+        {
+          "query": "legal dispute",
+          "customer_id": "C004",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "lexical"
+        },
+        {
+          "query": "urgent outage acknowledgement",
+          "customer_id": "C003",
+          "expected_page": 2,
+          "rank": null,
+          "returned_mode": null
+        },
+        {
+          "query": "How quickly must a serious service failure receive a reply?",
+          "customer_id": "C006",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "lexical"
+        },
+        {
+          "query": "When does the agreement end?",
+          "customer_id": "C002",
+          "expected_page": 1,
+          "rank": null,
+          "returned_mode": null
+        },
+        {
+          "query": "advance warning before ending the agreement",
+          "customer_id": "C010",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "lexical"
+        },
+        {
+          "query": "deadline to settle a bill",
+          "customer_id": "C008",
+          "expected_page": 2,
+          "rank": null,
+          "returned_mode": null
+        },
+        {
+          "query": "compensation for service failures",
+          "customer_id": "C004",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "lexical"
+        },
+        {
+          "query": "contractual dispute",
+          "customer_id": "C004",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "lexical"
+        },
+        {
+          "query": "renewal termination",
+          "customer_id": "C012",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "lexical"
+        }
+      ]
+    },
+    "hybrid": {
+      "n": 12,
+      "recall_at_1": 1,
+      "recall_at_3": 1,
+      "mrr": 1.0,
+      "citation_provenance_rate": 1,
+      "total_latency_ms": 83.46,
+      "cases": [
+        {
+          "query": "non-renewal notice",
+          "customer_id": "C001",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "expiration",
+          "customer_id": "C002",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "critical incidents response",
+          "customer_id": "C003",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "legal dispute",
+          "customer_id": "C004",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "urgent outage acknowledgement",
+          "customer_id": "C003",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "How quickly must a serious service failure receive a reply?",
+          "customer_id": "C006",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "When does the agreement end?",
+          "customer_id": "C002",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "advance warning before ending the agreement",
+          "customer_id": "C010",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "deadline to settle a bill",
+          "customer_id": "C008",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "compensation for service failures",
+          "customer_id": "C004",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "contractual dispute",
+          "customer_id": "C004",
+          "expected_page": 2,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        },
+        {
+          "query": "renewal termination",
+          "customer_id": "C012",
+          "expected_page": 1,
+          "rank": 1,
+          "returned_mode": "hybrid"
+        }
+      ]
+    }
+  },
+  "baseline_evaluation": {
+    "executed_at_utc": "2026-10-24T10:18:56.656062+00:00",
+    "mode": "offline synthetic evaluation",
+    "tool_selection_exact_match": {
+      "passed": 4,
+      "total": 4,
+      "rate": 1.0
+    },
+    "risk_score_and_level_correctness": {
+      "passed": 5,
+      "total": 5,
+      "rate": 1.0
+    },
+    "retrieval_customer_page_hit_at_1": {
+      "passed": 6,
+      "total": 6,
+      "rate": 1.0
+    },
+    "citation_exact_pdf_passage_match": {
+      "passed": 60,
+      "total": 60,
+      "rate": 1.0
+    },
+    "signal_reference_integrity": {
+      "passed": 8,
+      "total": 8,
+      "rate": 1.0
+    },
+    "approval_and_idempotence": {
+      "passed": 6,
+      "total": 6,
+      "rate": 1.0
+    },
+    "error_recovery": {
+      "passed": 1,
+      "total": 1,
+      "rate": 1.0
+    },
+    "scenario_completion": {
+      "passed": 6,
+      "total": 6,
+      "rate": 1.0
+    },
+    "latency_ms": {
+      "samples": 9,
+      "median": 112.01,
+      "max": 1605.1,
+      "cold_start_excluded": true
+    },
+    "limitations": [
+      "Small handcrafted synthetic test set; no production distribution or predictive validation.",
+      "Lexical hashing vectors; this is not a semantic embedding benchmark.",
+      "Grounding checks reference integrity and exact source excerpts, not semantic entailment.",
+      "Live LLM quality and real Salesforce/SAP connections were not evaluated."
+    ],
+    "cases": [
+      {
+        "case": "Who is the contact for C003?",
+        "expected_agents": [
+          "supervisor",
+          "crm",
+          "answer"
+        ],
+        "actual_agents": [
+          "supervisor",
+          "crm",
+          "answer"
+        ],
+        "passed": true
+      },
+      {
+        "case": "Show invoices for C001",
+        "expected_agents": [
+          "supervisor",
+          "erp",
+          "answer"
+        ],
+        "actual_agents": [
+          "supervisor",
+          "erp",
+          "answer"
+        ],
+        "passed": true
+      },
+      {
+        "case": "What is the notice clause for C002?",
+        "expected_agents": [
+          "supervisor",
+          "documents",
+          "answer"
+        ],
+        "actual_agents": [
+          "supervisor",
+          "documents",
+          "answer"
+        ],
+        "passed": true
+      },
+      {
+        "case": "Tell me a joke",
+        "expected_agents": [
+          "supervisor",
+          "answer"
+        ],
+        "actual_agents": [
+          "supervisor",
+          "answer"
+        ],
+        "passed": true
+      },
+      {
+        "case": "C001",
+        "expected_score": 85,
+        "actual_score": 85,
+        "expected_level": "High",
+        "actual_level": "High",
+        "passed": true
+      },
+      {
+        "case": "C002",
+        "expected_score": 20,
+        "actual_score": 20,
+        "expected_level": "Low",
+        "actual_level": "Low",
+        "passed": true
+      },
+      {
+        "case": "C003",
+        "expected_score": 0,
+        "actual_score": 0,
+        "expected_level": "Low",
+        "actual_level": "Low",
+        "passed": true
+      },
+      {
+        "case": "C004",
+        "expected_score": 40,
+        "actual_score": 40,
+        "expected_level": "Medium",
+        "actual_level": "Medium",
+        "passed": true
+      },
+      {
+        "case": "C005",
+        "expected_score": 0,
+        "actual_score": 0,
+        "expected_level": "Unknown",
+        "actual_level": "Unknown",
+        "passed": true
+      },
+      {
+        "case": "non-renewal notice",
+        "customer_id": "C001",
+        "expected_page": 1,
+        "actual_page": 1,
+        "passed": true
+      },
+      {
+        "case": "expiration",
+        "customer_id": "C002",
+        "expected_page": 1,
+        "actual_page": 1,
+        "passed": true
+      },
+      {
+        "case": "critical incidents response",
+        "customer_id": "C003",
+        "expected_page": 2,
+        "actual_page": 2,
+        "passed": true
+      },
+      {
+        "case": "legal dispute",
+        "customer_id": "C004",
+        "expected_page": 2,
+        "actual_page": 2,
+        "passed": true
+      },
+      {
+        "case": "invoices payable",
+        "customer_id": "C006",
+        "expected_page": 2,
+        "actual_page": 2,
+        "passed": true
+      },
+      {
+        "case": "renewal termination",
+        "customer_id": "C010",
+        "expected_page": 1,
+        "actual_page": 1,
+        "passed": true
+      }
+    ]
+  },
+  "approval_restart": {
+    "checked_at_utc": "2026-10-24T10:19:26.137213+00:00",
+    "status": "passed",
+    "separate_processes": 3,
+    "llm_used": false,
+    "crm": "synthetic",
+    "prepared": {
+      "run_id": "f898d75a-70c7-4740-abec-c02024ada493",
+      "tasks": 0,
+      "status": "awaiting_approval"
+    },
+    "approved": {
+      "status": "completed",
+      "tasks": 1
+    },
+    "duplicate": {
+      "duplicate_rejected": true,
+      "tasks": 1,
+      "audit_persisted": true
+    }
+  },
+  "streamlit": {
+    "initial_render": true,
+    "tabs": [
+      "Risk overview",
+      "AI Copilot",
+      "CRM / ERP Explorer",
+      "Contract Knowledge",
+      "Approval Center",
+      "Traces & Evaluation"
+    ],
+    "main_demo_paused": true,
+    "review_form_resumed_graph": true,
+    "persisted_mock_tasks": 12,
+    "ordinary_lookup_agents": [
+      "supervisor",
+      "crm",
+      "answer"
+    ],
+    "phase2_comparison_customers": [
+      "C001",
+      "C004"
+    ],
+    "phase2_no_additional_task": true,
+    "phase2_execution": {
+      "mode": "offline",
+      "requested": "hybrid",
+      "provider": "ollama",
+      "fallback_reason": "no_configured_provider"
+    },
+    "phase2_simulated_agent_ui": {
+      "execution": "simulated_provider",
+      "tools": 8,
+      "claims": 2
+    },
+    "exceptions": 0,
+    "database": "isolated temporary synthetic workspace"
+  }
+}

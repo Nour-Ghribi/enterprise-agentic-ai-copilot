@@ -1,0 +1,148 @@
+{
+  "scope": "Historical evidence only. No live provider was contacted for this recovery on 2026-10-24.",
+  "server_version": "0.40.7",
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "initial_inference_timestamp_utc": "2026-10-21T20:50:57.208404+00:00",
+  "initial_inference_latency_ms": 8979.01,
+  "individual_cases": {
+    "contact": {
+      "source_artifact": "ollama-e2e-third-attempt.json",
+      "sha256": "16a93e50fce7ce11de3aad2745bd78aa6279868821510078baf97816ad47acf8",
+      "artifact_written_at_utc": "2026-10-21T21:01:53.041182+00:00",
+      "run_id": "2b7f2831-c127-49a9-bacf-9af10d6af5e2",
+      "status": "passed",
+      "execution": "local_ollama",
+      "provider_calls": 2,
+      "tool_names": [
+        "get_customer"
+      ],
+      "verified_claims": 2,
+      "pdf_citations": [],
+      "scores": {},
+      "structured_corrections": 0,
+      "tokens": 3275,
+      "final_status": "completed"
+    },
+    "invoice": {
+      "source_artifact": "ollama-e2e-third-attempt.json",
+      "sha256": "16a93e50fce7ce11de3aad2745bd78aa6279868821510078baf97816ad47acf8",
+      "artifact_written_at_utc": "2026-10-21T21:01:53.041182+00:00",
+      "run_id": "b2e529ed-ed78-4d5f-ad75-740babdfb9e1",
+      "status": "passed",
+      "execution": "local_ollama",
+      "provider_calls": 2,
+      "tool_names": [
+        "get_invoices"
+      ],
+      "verified_claims": 1,
+      "pdf_citations": [],
+      "scores": {},
+      "structured_corrections": 0,
+      "tokens": 3459,
+      "final_status": "completed"
+    },
+    "approval": {
+      "source_artifact": "ollama-e2e-third-attempt.json",
+      "sha256": "16a93e50fce7ce11de3aad2745bd78aa6279868821510078baf97816ad47acf8",
+      "artifact_written_at_utc": "2026-10-21T21:01:53.041182+00:00",
+      "run_id": "cdeb8dc1-ffc4-41bd-b2c4-038948b24e01",
+      "status": "passed",
+      "execution": "local_ollama",
+      "provider_calls": 4,
+      "tool_names": [
+        "get_customer",
+        "get_invoices",
+        "get_tickets",
+        "search_contracts"
+      ],
+      "verified_claims": 6,
+      "pdf_citations": [],
+      "scores": {
+        "C001": 85
+      },
+      "structured_corrections": 0,
+      "tokens": 12354,
+      "final_status": "completed"
+    },
+    "contract": {
+      "source_artifact": "ollama-focused.json",
+      "sha256": "5e3fa79680b9c3b9ea24e96690f185d9b0c141354dfc93e2f81189d7acf1dea7",
+      "artifact_written_at_utc": "2026-10-21T21:07:17.464734+00:00",
+      "run_id": "6b3bef43-7be3-4c79-8149-542fdc3633a5",
+      "status": "passed",
+      "execution": "local_ollama",
+      "provider_calls": 6,
+      "tool_names": [
+        "search_contracts",
+        "search_contracts",
+        "search_contracts"
+      ],
+      "verified_claims": 4,
+      "pdf_citations": [
+        {
+          "id": "contract-C002:p1:0",
+          "document": "contract-C002.pdf",
+          "page": 1,
+          "source_sha256": "c72cefb8f797c84bd74f79d5eb07dab2529f9b3ed1decfe906341759d111a80e"
+        },
+        {
+          "id": "contract-C002:p1:0",
+          "document": "contract-C002.pdf",
+          "page": 1,
+          "source_sha256": "c72cefb8f797c84bd74f79d5eb07dab2529f9b3ed1decfe906341759d111a80e"
+        },
+        {
+          "id": "contract-C002:p1:0",
+          "document": "contract-C002.pdf",
+          "page": 1,
+          "source_sha256": "c72cefb8f797c84bd74f79d5eb07dab2529f9b3ed1decfe906341759d111a80e"
+        },
+        {
+          "id": "contract-C002:p1:0",
+          "document": "contract-C002.pdf",
+          "page": 1,
+          "source_sha256": "c72cefb8f797c84bd74f79d5eb07dab2529f9b3ed1decfe906341759d111a80e"
+        }
+      ],
+      "scores": {},
+      "structured_corrections": 0,
+      "tokens": 16343,
+      "final_status": "completed"
+    },
+    "comparison": {
+      "source_artifact": "ollama-comparison-correction.json",
+      "sha256": "6a468620b75a7e04010b3201f2de467f9697303daeedbd3a2d168d3cb5cba036",
+      "artifact_written_at_utc": "2026-10-21T21:14:04.606383+00:00",
+      "run_id": "57422dfc-a83e-41cc-97e6-5d4a1d08717c",
+      "status": "passed",
+      "execution": "local_ollama",
+      "provider_calls": 6,
+      "tool_names": [
+        "get_customer",
+        "get_customer",
+        "get_invoices",
+        "get_invoices",
+        "get_tickets",
+        "get_tickets",
+        "search_contracts",
+        "search_contracts"
+      ],
+      "verified_claims": 11,
+      "pdf_citations": [],
+      "scores": {
+        "C001": 85,
+        "C004": 40
+      },
+      "structured_corrections": 0,
+      "tokens": 25522,
+      "final_status": "completed"
+    }
+  },
+  "limitations": [
+    "Individual passes across different runs/revisions; not a single passing live end-to-end suite.",
+    "Real French/English negation tests and real-provider Streamlit smoke were not established as passing.",
+    "No real-provider inference repeated for the portfolio revision.",
+    "Original raw artifacts and timestamps are retained locally under ignored reports/ and reports/archive/2026-10-21; their SHA256 values identify the sources."
+  ]
+}

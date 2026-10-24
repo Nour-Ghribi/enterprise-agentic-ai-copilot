@@ -1,0 +1,9 @@
+{
+  "checked_at_utc": "2026-10-24T10:36:20.289619+00:00",
+  "status": "passed",
+  "candidate_files": 104,
+  "candidate_bytes": 430356,
+  "problems": [],
+  "scope": "Local paths, common secret signatures, file sizes, ignore rules and relative links. External URLs are not contacted; this is not an exhaustive secret/security audit.",
+  "git_push_performed": false
+}
